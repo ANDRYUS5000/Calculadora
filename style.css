@@ -28,18 +28,15 @@
     --transition: 1s;
 }
 
+body{
+    background-color: var(--background);
+}
+
 /* Background settings */
 .calc{
-    background-color: var(--background);
     width: 100vw;
     height: 100vh;
     transition: var(--transition);
-}
-.calc-content{  
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 }
 
 /* Top of the calculator */
@@ -90,6 +87,10 @@
     height: 35px;
     transition: var(--transition);
 }
+.form-control {
+    text-align: center; 
+ }
+
 #reset, #del{
     background-color: var(--key-blue-background);
     color: #FFF;

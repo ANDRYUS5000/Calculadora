@@ -117,12 +117,12 @@ if (darkThemeMq.matches) {
 function myFunction_set(val) {
     // receiving the input type range value
     document.getElementById('btnTheme').value = val; 
-
+    
     // changing the theme with the results above
     if(val == 1){
         theme.defaul();
     } 
-     
+    
     else if(val == 2){
         theme.light();
     }
@@ -130,7 +130,39 @@ function myFunction_set(val) {
     else{
         theme.dark();
     } 
-  
+    
 }
 
+let id='1'
 
+function selectF(val){
+    id=val
+    document.getElementById('d1').hidden=true;
+    document.getElementsByName('R').forEach(ele=>{
+        ele.value=''
+    })
+    document.getElementsByName('L').forEach(ele=>{
+        ele.value=''
+    })
+    if (val=='1') {
+        document.getElementById('d1').hidden=false;
+    }
+}
+
+function transform(name,val) {
+    if (id=='1') {
+        if (name=='L') {
+            document.getElementsByName('R').forEach(ele=>{
+                let res=val*9/5
+                res=res+32
+                ele.value=res
+            })
+        }else{
+            document.getElementsByName('L').forEach(ele=>{
+                let res=val-32
+                res=res*5/9
+                ele.value=res
+            })
+        }
+    }
+}
