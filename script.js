@@ -138,6 +138,7 @@ let id='1'
 function selectF(val){
     id=val
     document.getElementById('d1').hidden=true;
+    document.getElementById('d2').hidden=true;
     document.getElementsByName('R').forEach(ele=>{
         ele.value=''
     })
@@ -146,6 +147,9 @@ function selectF(val){
     })
     if (val=='1') {
         document.getElementById('d1').hidden=false;
+    }
+    if (val=='2') {
+        document.getElementById('d2').hidden=false;
     }
 }
 
@@ -161,6 +165,19 @@ function transform(name,val) {
             document.getElementsByName('L').forEach(ele=>{
                 let res=val-32
                 res=res*5/9
+                ele.value=res
+            })
+        }
+    }
+    if (id=='2') {
+        if (name=='L') {
+            document.getElementsByName('R').forEach(ele=>{
+                let res=val/100000
+                ele.value=res
+            })
+        }else{
+            document.getElementsByName('L').forEach(ele=>{
+                let res=val/100000
                 ele.value=res
             })
         }
