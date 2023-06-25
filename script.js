@@ -117,12 +117,12 @@ if (darkThemeMq.matches) {
 function myFunction_set(val) {
     // receiving the input type range value
     document.getElementById('btnTheme').value = val; 
-
+    
     // changing the theme with the results above
     if(val == 1){
         theme.defaul();
     } 
-     
+    
     else if(val == 2){
         theme.light();
     }
@@ -130,7 +130,90 @@ function myFunction_set(val) {
     else{
         theme.dark();
     } 
-  
+    
 }
 
+let id='1'
 
+function selectF(val){
+    id=val
+    document.getElementById('d1').hidden=true;
+    document.getElementById('d2').hidden=true;
+    document.getElementById('d3').hidden=true;
+    document.getElementById('d4').hidden=true;
+    document.getElementsByName('R').forEach(ele=>{
+        ele.value=''
+    })
+    document.getElementsByName('L').forEach(ele=>{
+        ele.value=''
+    })
+    if (val=='1') {
+        document.getElementById('d1').hidden=false;
+    }
+    if (val=='2') {
+        document.getElementById('d2').hidden=false;
+    }
+    if (val=='3') {
+        document.getElementById('d3').hidden=false;
+    }
+    if (val=='4') {
+        document.getElementById('d4').hidden=false;
+    }
+}
+
+function transform(name,val) {
+    if (id=='1') {
+        if (name=='L') {
+            document.getElementsByName('R').forEach(ele=>{
+                let res=val*9/5
+                res=res+32
+                ele.value=res
+            })
+        }else{
+            document.getElementsByName('L').forEach(ele=>{
+                let res=val-32
+                res=res*5/9
+                ele.value=res
+            })
+        }
+    }
+    if (id=='2') {
+        if (name=='L') {
+            document.getElementsByName('R').forEach(ele=>{
+                let res=val/100000
+                ele.value=res
+            })
+        }else{
+            document.getElementsByName('L').forEach(ele=>{
+                let res=val/100000
+                ele.value=res
+            })
+        }
+    }
+    if (id=='3') {
+        if (name=='L') {
+            document.getElementsByName('R').forEach(ele=>{
+                let res=val*1000
+                ele.value=res
+            })
+        }else{
+            document.getElementsByName('L').forEach(ele=>{
+                let res=val/1000
+                ele.value=res
+            })
+        }
+    }
+    if (id=='4') {
+        if (name=='L') {
+            document.getElementsByName('R').forEach(ele=>{
+                let res=val*100
+                ele.value=res
+            })
+        }else{
+            document.getElementsByName('L').forEach(ele=>{
+                let res=val/100
+                ele.value=res
+            })
+        }
+    }
+}
