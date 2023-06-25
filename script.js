@@ -139,6 +139,7 @@ function selectF(val){
     id=val
     document.getElementById('d1').hidden=true;
     document.getElementById('d2').hidden=true;
+    document.getElementById('d3').hidden=true;
     document.getElementsByName('R').forEach(ele=>{
         ele.value=''
     })
@@ -150,6 +151,9 @@ function selectF(val){
     }
     if (val=='2') {
         document.getElementById('d2').hidden=false;
+    }
+    if (val=='3') {
+        document.getElementById('d3').hidden=false;
     }
 }
 
@@ -178,6 +182,19 @@ function transform(name,val) {
         }else{
             document.getElementsByName('L').forEach(ele=>{
                 let res=val/100000
+                ele.value=res
+            })
+        }
+    }
+    if (id=='3') {
+        if (name=='L') {
+            document.getElementsByName('R').forEach(ele=>{
+                let res=val*1000
+                ele.value=res
+            })
+        }else{
+            document.getElementsByName('L').forEach(ele=>{
+                let res=val/1000
                 ele.value=res
             })
         }
